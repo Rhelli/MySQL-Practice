@@ -40,4 +40,36 @@ SELECT winner
 FROM nobel
 WHERE LEFT(winner, 4) = 'John';
 
--- 5. Show the year, subject and name of Physics winner for 1980 together with the Chemistry winners for 1984
+-- 8. Show the year, subject and name of Physics winner for 1980 together with the Chemistry winners for 1984
+SELECT yr, subject, winner
+FROM nobel
+WHERE subject = 'Chemistry' AND yr = 1984 OR subject = 'Physics' AND yr = 1980;
+
+-- 9. Show the year, subject and name of winners for 1980 excluding Chemistry and Medicine
+SELECT * FROM nobel
+WHERE yr = 1980 AND subject NOT IN ('Chemistry', 'Medicine');
+
+-- 10. Show year, subject and name of Medicine prize winners before 1910 with Literature winners later than 2004
+SELECT * FROM nobel
+WHERE subject = 'Medicine' AND yr < 1910 OR subject = 'Literature' AND yr >= 2004;
+
+-- 11. Find all the details of the prize win by PETER GRUNBERG
+SELECT * FROM nobel
+WHERE winner LIKE '%GRÜNBERG%';
+
+-- 12. Find all the details of the prize won by Eugene O'Neill
+SELECT * FROM nobel
+WHERE winner LIKE "EUGENE O'NEILL";
+
+-- 13. List the winners, year and subject where the winner starts with 'Sir.'. Show the most recent first, then by name order
+SELECT winner, yr, subject
+FROM nobel
+WHERE LEFT(winner, 3) = 'Sir'
+ORDER BY yr DESC;
+
+-- 14. Using the expression 'subject IN ('Chemistry', 'Physics') as the values 0 or 1, show the 1984 winners and subject ordered
+--     by subject and winner name; but list Chemistry and Physics last
+SELECT winner, subject
+FROM nobel
+WHERE yr = 1984
+ORDER BY subject IN ('Physics', 'Chemistry'), subject, winner;
