@@ -25,3 +25,19 @@ WHERE subject = 'Peace' AND yr >= 2000;
 SELECT yr, subject, winner
 FROM nobel
 WHERE yr BETWEEN 1980 And 1989 AND subject = 'Literature';
+
+-- 6. Show all the details of the presidential winners
+SELECT * FROM nobel
+ WHERE subject = 'Peace'
+  AND winner IN ('Barack Obama',
+                 'Woodrow Wilson',
+                 'Theodore Roosevelt',
+                 'Jimmy Carter'
+);
+
+-- 7. Show the winners with the first name 'John'
+SELECT winner
+FROM nobel
+WHERE LEFT(winner, 4) = 'John';
+
+-- 5. Show the year, subject and name of Physics winner for 1980 together with the Chemistry winners for 1984
