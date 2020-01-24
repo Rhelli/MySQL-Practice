@@ -47,3 +47,14 @@ WHERE name <= ALL
 (SELECT name FROM world y
 WHERE y.continent=x.continent
 AND area>0);
+
+-- 9. Find the continents where all countries have a pop of <= 25Mil. Then find out the names of the countries in these continents
+--    Show name, continent and population
+SELECT name, continent, population
+FROM world X
+WHERE 25000000 > ALL(SELECT population FROM world Y WHERE X.continent = Y.continent);
+
+-- 10. Some countries have populations 3x or more than their neighbors *in the same continent). Give these countries & continents
+SELECT name, continent
+FROM world X
+WHERE population > ALL(SELECT population*3 FROM world Y WHERE X.continent = Y.continent AND X.name != Y.name);
