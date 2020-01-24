@@ -1,0 +1,40 @@
+-- 1. Show the total population of the world
+SELECT SUM(population)
+FROM world;
+
+-- 2. List all the continents, one each.
+SELECT DISTINCT continent
+FROM world;
+
+-- 3. Give the total GDP of Africa
+SELECT SUM(GDP) AS Total_GDP
+FROM world
+WHERE continent LIKE '%FRIC%';
+
+-- 5. How many countries have an area of at least 1000000
+SELECT COUNT(name)
+FROM world
+WHERE area > 1000000;
+
+-- 6. What is the total population of Estonia, Lativa and Lithuania
+SELECT SUM(population)
+FROM world
+WHERE name IN ('Estonia', 'Latvia', 'Lithuania');
+
+-- 7. For each continent show the continent and number of countries
+SELECT continent, COUNT(name)
+FROM world
+GROUP BY continent;
+
+-- 8. For each continent show the continent and number of countries with populations of at least 10M
+SELECT continent, COUNT(name)
+FROM world
+WHERE population >= 10000000
+GROUP BY continent;
+
+-- 9. List the countries that have a total population of at least 100 million
+SELECT continent
+FROM world
+GROUP BY continent
+HAVING SUM(population) > 100000000;
+
