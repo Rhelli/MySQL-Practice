@@ -73,3 +73,4 @@ GROUP BY matchid;
 
 -- 13. List every match with the foals scored by each team as shown. This will use 'CASE WHEN'.
 
+
