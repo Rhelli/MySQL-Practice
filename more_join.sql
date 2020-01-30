@@ -1,3 +1,5 @@
+-- Link: https://sqlzoo.net/wiki/More_JOIN_operations
+
 -- 1. List the films where the year is 1962
 SELECT id, title
  FROM movie

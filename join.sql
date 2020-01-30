@@ -1,3 +1,5 @@
+-- Link: https://sqlzoo.net/wiki/The_JOIN_operation
+
 -- 1. Modify the table to show the matchid and player name for all goals scored by ze Germans.
 SELECT matchid, player FROM goal 
   WHERE teamid = 'GER';

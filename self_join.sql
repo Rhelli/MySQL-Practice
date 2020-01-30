@@ -1,3 +1,5 @@
+-- Link: https://sqlzoo.net/wiki/Self_join
+
 -- 1. How many stops are there in the database?
 SELECT COUNT(id)
 FROM stops;
